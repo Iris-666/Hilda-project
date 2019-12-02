@@ -88,7 +88,7 @@ width: 1900px;
 #beginbt{
   position: absolute;
   top: 400px;
-  left: 600px;
+  left: 650px;
   color: white;
   font-size: 40px;
   font-family: "Comic Sans MS", cursive, sans-serif;
@@ -105,4 +105,28 @@ width: 1900px;
   top: -100px;
   left: -300px;
 
+}
+
+#nextbt{
+  position: absolute;
+  top: 700px;
+  left: 1250px;
+  color: white;
+  font-size: 40px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  border: white;
+  border-style: solid;
+  border-width: 3px;
+  background-color: rgba(128,174,177,0.9);
+  border-radius: 12px;
+  cursor: pointer;
+  display: none;
+}
+
+#drawTrollVideo{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: none;
+  width: 1440px;
 }

@@ -2,7 +2,7 @@ let wolf = document.getElementById('wolf1');
 let index = 1;
 let wolfLeft = -300;
 let beginbt = document.getElementById('beginbt')
-let img = document.getElementById('startimg')
+let startimg = document.getElementById('startimg')
 let hildaimg = document.getElementById('hildaimg')
 let twigimg = document.getElementById('twigimg')
 let trollimg = document.getElementById('trollimg')
@@ -11,6 +11,12 @@ let hildadiv = document.getElementById('hildadiv')
 let twigdiv = document.getElementById('twigdiv')
 let wolfdiv = document.getElementById('wolfdiv')
 let wolfimg = document.getElementById('wolfimg')
+let hildaclick = false;
+let twigclick = false;
+let wolfclick = false;
+let trollclick = false;
+let nextbt = document.getElementById('nextbt')
+let drawTrollVideo = document.getElementById('drawTrollVideo')
 
 intervalID = setInterval(() => {
   if(index >= 8){
@@ -25,8 +31,8 @@ intervalID = setInterval(() => {
 }, 100);
 
 function begin(){
-  img.src = 'intro1.png';
-  img.style.width = '1440px';
+  startimg.src = 'intro1.png';
+  startimg.style.width = '1440px';
   hildaimg.style.display = 'block';
   twigimg.style.display = 'block';
   trollimg.style.display = 'block';
@@ -40,12 +46,10 @@ function begin(){
   hildadiv.style.display = 'block';
   trolldiv.style.display = 'block';
   twigdiv.style.display = 'block';
-
-  // wolf.remove();
   beginbt.remove();
-  console.log('begin')
 
 }
+beginbt.addEventListener('click',begin)
 
 trolldiv.addEventListener('mouseover',function(){
   trollimg.style.width = '1600px';
@@ -88,8 +92,52 @@ wolfdiv.addEventListener('mouseout',function(){
   wolfimg.style.top = '-300px';
   wolfimg.style.left = '200px';
 })
+hildadiv.addEventListener('click',function(){
+  console.log('hilda intro')
+  hildaclick = true;
+  if(hildaclick == true && twigclick == true && wolfclick == true && trollclick == true){
+    nextbt.style.display = 'block';
+    console.log('next')
+  }
+})
+twigdiv.addEventListener('click',function(){
+  console.log('twig intro')
+  twigclick = true;
+  if(hildaclick == true && twigclick == true && wolfclick == true && trollclick == true){
+    nextbt.style.display = 'block';
+    console.log('next')
+  }
+})
+wolfdiv.addEventListener('click',function(){
+  console.log('wolf intro')
+  wolfclick = true;
+  if(hildaclick == true && twigclick == true && wolfclick == true && trollclick == true){
+    nextbt.style.display = 'block';
+    console.log('next')
+  }
+})
+trolldiv.addEventListener("click",function(){
+  console.log('troll intro');
+  trollclick = true;
+  if(hildaclick == true && twigclick == true && wolfclick == true && trollclick == true){
+    nextbt.style.display = 'block';
+    console.log('next')
+  }
+})
+
+function drawTroll(){
+  drawTrollVideo.style.display = 'block'
+  startimg.remove();
+  wolfimg.remove();
+  hildaimg.remove();
+  twigimg.remove();
+  trollimg.remove();
+  drawTrollVideo.play();
+  nextbt.style.display = 'none';
+
+}
+
+nextbt.addEventListener('click',drawTroll);
 
 
 
-
-beginbt.addEventListener('click',begin)
