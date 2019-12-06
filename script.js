@@ -27,7 +27,27 @@ let counterall = 0;
 let hildaescape = document.getElementById('hildaescape');
 let startEscape = false;
 let escapeSuccess = document.getElementById('escapeSuccess')
-
+let runbt = document.getElementById('runbt')
+let escapeFail = document.getElementById('escapeFail')
+let text = document.getElementById('text')
+let nextbt2 = document.getElementById('nextbt2')
+let nextbt3 = document.getElementById('nextbt3')
+let keyk = document.getElementById('keyk')
+let keyl = document.getElementById('keyl')
+let press1 = document.getElementById('press1')
+let press2 = document.getElementById('press2')
+let attack = document.getElementById('attack')
+let alfur = document.getElementById('alfur')
+let bedroom = document.getElementById('bedroom')
+let underbed = document.getElementById('underbed')
+let desk = document.getElementById('desk')
+let drawer = document.getElementById('drawer')
+let bookshelf = document.getElementById('bookshelf')
+let bedvideo = document.getElementById('bedvideo')
+let deskvideo = document.getElementById('deskvideo')
+let bookshelfvideo = document.getElementById('bookshelfvideo')
+let drawervideo = document.getElementById('drawervideo')
+let returnbt2 = document.getElementById('returnbt2')
 
 
 intervalID = setInterval(() => {
@@ -191,17 +211,42 @@ function drawTroll(){
 
 nextbt.addEventListener('click',drawTroll);
 
+
+let position1 = 300
+let position2 = 330
+let c = 1
 drawTrollVideo.addEventListener('ended',function(){
   drawTrollVideo.remove()
   hildaescape.style.display = 'block'
+  keyk.style.display = 'block'
+  keyl.style.display = 'block'
+  press1.style.display = 'block'
+  press2.style.display = 'block'
+
+  setInterval(() => {
+    position1 = position1 + c
+    position2 = position2 - c
+    if(position1 >= 330){
+      c = -c
+    }else if(position1 <= 300){
+      c = -c
+    }
+   press1.style.top = position1 + 'px';
+   press2.style.top = position2 + 'px';
+  }, 10);
+
+
   // hildaescape.play()
   document.addEventListener('keypress',whichkey);
 })
 
 let prevkey =[]
 let playrate = []
-let keyispressed = false;
 function whichkey(){
+  keyk.remove();
+  keyl.remove();
+  press1.remove();
+  press2.remove();
   var key = event.key;
   prevkey[0] = prevkey[1]
   prevkey[1] = key
@@ -218,7 +263,7 @@ function whichkey(){
 
   setInterval(() => {
     hildaescape.playbackRate = counter/3;
-    playrate.push(hildaescape.playbackRate);
+    // playrate.push(hildaescape.playbackRate);
     // console.log(playrate)
     counter = 0
   }, 1000);
@@ -231,13 +276,148 @@ function whichkey(){
       hildaescape.remove();
       escapeSuccess.style.display = 'block'
       escapeSuccess.play();
+      text.style.display = 'block'
+      text.innerHTML = 'Good job!'
+      setTimeout(() => {
+        text.style.display = 'none'
+        
+      }, 3000);
+      // setTimeout(() => {
+        nextbt2.style.display = 'block'
+        nextbt2.addEventListener('click',function(){
+          nextbt2.remove();
+          escapeSuccess.remove();
+          attack.style.display = 'block'
+          attack.play();
+        })
+      // }, 47000);
 
     }else{
       console.log('fail')
+      hildaescape.pause();
+      hildaescape.style.display = 'none';
+      escapeFail.style.display = 'block'
+      escapeFail.play();
+      text.style.display = 'block'
+      text.innerHTML = 'You Failed :( Click here to try again'
+      text.addEventListener('click',function(){
+        text.style.display = 'none'
+        hildaescape.style.display = 'block'
+        escapeFail.style.display = 'none'
+        var key = event.key;
+        prevkey[0] = prevkey[1]
+        prevkey[1] = key
+        console.log(prevkey)
+        if(prevkey[0] == 'k' && prevkey[1] == 'l'){
+          counter += 1;
+          counterall += 1
+          hildaescape.play();
+          
+        }
+        setInterval(() => {
+          hildaescape.playbackRate = counter/3;
+          playrate.push(hildaescape.playbackRate);
+          // console.log(playrate)
+          counter = 0
+        }, 1000);
+
+      })
       
     }
   })
 
+attack.addEventListener('ended',function(){
+  nextbt3.style.display = 'block'
+  nextbt3.addEventListener('click',function(){
+    attack.remove();
+    nextbt3.remove();
+    alfur.style.display = 'block'
+    alfur.play();
+  })
+})
 
+alfur.addEventListener('ended',function(){
+  alfur.remove();
+  bedroom.style.display = 'block'
+  underbed.style.display = 'block'
+  desk.style.display = 'block'
+  drawer.style.display = 'block'
+  bookshelf.style.display = 'block'
+})
+let bedclick = false;
+let deskclick = false;
+let drawerclick = false;
+let bookshelfclick = false;
+let returncount2 = 0;
+underbed.addEventListener('click',function(){
+  bedroom.style.display = 'none'
+  underbed.style.display = 'none'
+  desk.style.display = 'none'
+  drawer.style.display = 'none'
+  bookshelf.style.display = 'none'
+  bedvideo.style.display = 'block'
+  bedvideo.play();
+  bedclick = true
+})
+bedvideo.addEventListener('ended',function(){
+  returnbt2.style.display = 'block'
+})
+desk.addEventListener('click',function(){
+  bedroom.style.display = 'none'
+  underbed.style.display = 'none'
+  desk.style.display = 'none'
+  drawer.style.display = 'none'
+  bookshelf.style.display = 'none'
+  deskvideo.style.display = 'block'
+  deskvideo.play();
+  deskclick = true
+})
+deskvideo.addEventListener('ended',function(){
+  returnbt2.style.display = 'block'
+})
 
+drawer.addEventListener('click',function(){
+  bedroom.style.display = 'none'
+  underbed.style.display = 'none'
+  desk.style.display = 'none'
+  drawer.style.display = 'none'
+  bookshelf.style.display = 'none'
+  drawervideo.style.display = 'block'
+  drawervideo.play();
+  drawerclick = true
+})
+drawervideo.addEventListener('ended',function(){
+  returnbt2.style.display = 'block'
+})
 
+bookshelf.addEventListener('click',function(){
+  bedroom.style.display = 'none'
+  underbed.style.display = 'none'
+  desk.style.display = 'none'
+  drawer.style.display = 'none'
+  bookshelf.style.display = 'none'
+  bookshelfvideo.style.display = 'block'
+  bookshelfvideo.play();
+  bookshelfclick = true
+})
+bookshelfvideo.addEventListener('ended',function(){
+  returnbt2.style.display = 'block'
+})
+
+returnbt2.addEventListener('click',function(){
+  returnbt2.style.display = 'none'
+  bedroom.style.display = 'block'
+  underbed.style.display = 'block'
+  desk.style.display = 'block'
+  drawer.style.display = 'block'
+  bookshelf.style.display = 'block'
+  deskvideo.style.display = 'none'
+  bedvideo.style.display = 'none'
+  drawervideo.style.display = 'none'
+  bookshelfvideo.style.display = 'none'
+  returncount2 += 1
+
+  if (returncount2 == 4){
+    console.log('ear')
+  }
+})
