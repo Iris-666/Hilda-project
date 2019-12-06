@@ -48,6 +48,11 @@ let deskvideo = document.getElementById('deskvideo')
 let bookshelfvideo = document.getElementById('bookshelfvideo')
 let drawervideo = document.getElementById('drawervideo')
 let returnbt2 = document.getElementById('returnbt2')
+let music = document.getElementById('music')
+let findmusic = document.getElementById('findmusic')
+let ear = document.getElementById('ear')
+let elvesintro = document.getElementById('elvesintro')
+let arrow = document.getElementById('arrow')
 
 
 intervalID = setInterval(() => {
@@ -63,6 +68,7 @@ intervalID = setInterval(() => {
 }, 100);
 
 function begin(){
+  music.play()
   startimg.src = 'intro1.png';
   startimg.style.width = '1440px';
   hildaimg.style.display = 'block';
@@ -157,7 +163,6 @@ wolfdiv.addEventListener('click',function(){
   wolfintro.play()
 })
 trolldiv.addEventListener("click",function(){
-
   trollintro.style.display = 'block'
   returnbt.style.display = 'block'
   wolfimg.style.display = 'none'
@@ -169,7 +174,7 @@ trolldiv.addEventListener("click",function(){
 })
 
 let returncount = 0
-function returnToInto(){
+function returnToIntro(){
   twigintro.pause();
   hildaintro.pause();
   trollintro.pause();
@@ -192,9 +197,10 @@ function returnToInto(){
   }
 
 }
-returnbt.addEventListener('click',returnToInto)
+returnbt.addEventListener('click',returnToIntro)
 
 function drawTroll(){
+  music.pause();
   drawTrollVideo.style.display = 'block'
   startimg.remove();
   wolfimg.remove();
@@ -343,6 +349,7 @@ alfur.addEventListener('ended',function(){
   desk.style.display = 'block'
   drawer.style.display = 'block'
   bookshelf.style.display = 'block'
+  findmusic.play()
 })
 let bedclick = false;
 let deskclick = false;
@@ -350,6 +357,7 @@ let drawerclick = false;
 let bookshelfclick = false;
 let returncount2 = 0;
 underbed.addEventListener('click',function(){
+  underbed.remove()
   bedroom.style.display = 'none'
   underbed.style.display = 'none'
   desk.style.display = 'none'
@@ -363,6 +371,7 @@ bedvideo.addEventListener('ended',function(){
   returnbt2.style.display = 'block'
 })
 desk.addEventListener('click',function(){
+  desk.remove()
   bedroom.style.display = 'none'
   underbed.style.display = 'none'
   desk.style.display = 'none'
@@ -377,6 +386,7 @@ deskvideo.addEventListener('ended',function(){
 })
 
 drawer.addEventListener('click',function(){
+  drawer.remove()
   bedroom.style.display = 'none'
   underbed.style.display = 'none'
   desk.style.display = 'none'
@@ -391,6 +401,7 @@ drawervideo.addEventListener('ended',function(){
 })
 
 bookshelf.addEventListener('click',function(){
+  bookshelf.remove()
   bedroom.style.display = 'none'
   underbed.style.display = 'none'
   desk.style.display = 'none'
@@ -417,7 +428,30 @@ returnbt2.addEventListener('click',function(){
   bookshelfvideo.style.display = 'none'
   returncount2 += 1
 
+  let positionx = 590
+  let positiony = 260
+  let c2 = 1
   if (returncount2 == 4){
-    console.log('ear')
+    ear.style.display ='block'
+    arrow.style.display = 'block';
+    console.log('work')
+      setInterval(() => {
+        console.log('setinterval')
+        positionx = positionx - c2
+        positiony = positiony - c2
+        if(positionx <= 570){
+          c2 = -c2
+        }else if(positionx >= 590){
+          c2 = -c2
+        }
+        arrow.style.top = positiony + 'px'
+        arrow.style.left = positionx + 'px'
+      }, 100);
+    ear.addEventListener('click',function(){
+      bedroom.style.display = 'none'
+      ear.remove();
+      elvesintro.style.display = 'block'
+      elvesintro.play();
+    })
   }
 })

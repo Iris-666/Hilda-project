@@ -192,6 +192,13 @@ width: 1900px;
   width: 1440px;
   display: none;
 }
+#elvesintro{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  display: none;
+}
 
 
 #returnbt{
@@ -341,11 +348,11 @@ width: 1900px;
   left: 650px;
   border-radius: 80%;
   border-style: solid;
-  border-width: 2px;
+  border-width: 5px;
   border-color: rgba(128,174,177,0.9);
   background-color: white;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   display: none;
 }
@@ -356,11 +363,11 @@ width: 1900px;
   left: 1000px;
   border-radius: 80%;
   border-style: solid;
-  border-width: 2px;
+  border-width: 5px;
   border-color: rgba(128,174,177,0.9);
   background-color: white;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   display: none;
 }
@@ -370,11 +377,11 @@ width: 1900px;
   left: 1000px;
   border-radius: 80%;
   border-style: solid;
-  border-width: 2px;
+  border-width: 5px;
   border-color: rgba(128,174,177,0.9);
   background-color: white;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   display: none;
 }
@@ -384,14 +391,29 @@ width: 1900px;
   left: 770px;
   border-radius: 80%;
   border-style: solid;
-  border-width: 2px;
+  border-width: 5px;
   border-color: rgba(128,174,177,0.9);
   background-color: white;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   display: none;
 }
+#ear{
+  position: absolute;
+  top: 350px;
+  left: 555px;
+  border-radius: 80%;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgba(128,174,177,0.9);
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: none;
+}
+
 #bedvideo{
   position: absolute;
   top: 0px;
@@ -420,5 +442,11 @@ width: 1900px;
   width: 1440px;
   display: none;
 }
-
+#arrow{
+  position: absolute;
+  top: 260px;
+  left: 590px;
+  display: none;
+  width: 80px;
+}
 
