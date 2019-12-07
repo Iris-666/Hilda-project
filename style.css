@@ -153,7 +153,37 @@ width: 1900px;
   cursor: pointer;
   display: none;
 }
+#nextbt4{
+  position: absolute;
+  top: 700px;
+  left: 1250px;
+  color: white;
+  font-size: 40px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  border: white;
+  border-style: solid;
+  border-width: 3px;
+  background-color: rgba(128,174,177,0.9);
+  border-radius: 12px;
+  cursor: pointer;
+  display: none;
+}
 
+#nextbt5{
+  position: absolute;
+  top: 700px;
+  left: 1250px;
+  color: white;
+  font-size: 40px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  border: white;
+  border-style: solid;
+  border-width: 3px;
+  background-color: rgba(128,174,177,0.9);
+  border-radius: 12px;
+  cursor: pointer;
+  display: none;
+}
 
 
 #drawTrollVideo{
@@ -283,8 +313,7 @@ width: 1900px;
   border-width: 3px;  
   background-color: rgba(128,174,177,0.9);
   border-radius: 12px;
-  cursor: pointer;
-  display: none;
+]  display: none;
 
 }
 
@@ -450,3 +479,52 @@ width: 1900px;
   width: 80px;
 }
 
+#giantbook{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  display: none;
+}
+#giantjump1{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  display: none;
+}
+#giantjump2{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  display: none;
+}
+
+#myContainer{
+  width: 40px;
+  height: 300px;
+  position: absolute;
+  left: 700px;
+  top: 150px;
+  display: none;
+  border-style: solid;
+  border-radius: 12px;
+  border-color: rgb(128,174,177);
+
+}
+
+#jumptext{
+  position: absolute;
+  top: 0px;
+  left: 600px;
+  color: white;
+  font-size: 40px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  border: white;
+  border-style: solid;
+  border-width: 3px;  
+  background-color: rgba(128,174,177,0.9);
+  border-radius: 12px;
+  display: none;
+}

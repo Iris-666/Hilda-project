@@ -53,6 +53,13 @@ let findmusic = document.getElementById('findmusic')
 let ear = document.getElementById('ear')
 let elvesintro = document.getElementById('elvesintro')
 let arrow = document.getElementById('arrow')
+let nextbt4 = document.getElementById('nextbt4')
+let giantbook = document.getElementById('giantbook')
+let nextbt5 = document.getElementById('nextbt5')
+let giantjump1 = document.getElementById('giantjump1')
+let myContainer = document.getElementById('myContainer')
+let giantjump2 = document.getElementById('giantjump2')
+let jumptext = document.getElementById('jumptext')
 
 
 intervalID = setInterval(() => {
@@ -438,7 +445,7 @@ returnbt2.addEventListener('click',function(){
       setInterval(() => {
         console.log('setinterval')
         positionx = positionx - c2
-        positiony = positiony - c2
+        positiony = positiony + c2
         if(positionx <= 570){
           c2 = -c2
         }else if(positionx >= 590){
@@ -446,12 +453,82 @@ returnbt2.addEventListener('click',function(){
         }
         arrow.style.top = positiony + 'px'
         arrow.style.left = positionx + 'px'
-      }, 100);
+      }, 50);
     ear.addEventListener('click',function(){
+      arrow.style.display = 'none'
       bedroom.style.display = 'none'
       ear.remove();
       elvesintro.style.display = 'block'
       elvesintro.play();
+      returnbt2.remove()
     })
   }
 })
+
+elvesintro.addEventListener('ended',function(){
+  nextbt4.style.display = 'block'
+  nextbt4.addEventListener('click',function(){
+    giantbook.style.display = 'block'
+    nextbt4.style.display = 'none'
+    elvesintro.style.display = 'none'
+    giantbook.play();
+  })
+})
+
+giantbook.addEventListener('ended',function(){
+  nextbt5.style.display = 'block'
+  giantbook.pause()
+  nextbt5.addEventListener('click',function(){
+    nextbt5.remove();
+    giantjump1.style.display = 'block'
+    giantbook.style.display = 'none'
+    giantjump1.play();
+  })
+})
+// let value=0;
+function setup(){
+  let cnv = createCanvas(40, 300);
+  cnv.parent('myContainer');
+  background(128,174,177);
+
+}
+let h = 0;
+let a=0
+let yspeed = 5.0;
+function draw() {
+  background(128,174,177);
+  fill(203,64,66);
+  noStroke();
+  rect(0,height-240,width,20);
+
+  if (keyIsPressed === true) {
+
+    if (key === 'j') {
+      console.log("j pressed");
+      fill(247,92,47);
+      rect(0, height-h, width, h);
+      h+=yspeed;
+      console.log("h",h);
+      if (h>=height || h<=0) {
+        yspeed *= -1;
+        console.log("h",h);
+      }
+    }
+
+
+  }else if (keyIsPressed === false && (240<=h) && (h<=260)) {
+      myContainer.style.display = 'none'
+      giantjump1.remove()
+      giantjump2.style.display = 'block'
+      giantjump2.play()
+      jumptext.style.display = 'none'
+  }
+}
+
+giantjump1.addEventListener('ended',function(){
+  myContainer.style.display = 'block'
+  jumptext.style.display = 'block'
+
+}
+
+)
