@@ -1,2 +1,1 @@
-# Hilda-project
-# Hilda-project
+# L-Oreal-Explore-AR-Demo
